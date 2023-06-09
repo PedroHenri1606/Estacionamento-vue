@@ -4,7 +4,7 @@ import App from '../App.vue'
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'App.vue',
+    name: 'home',
     component: App
   },
 ]
