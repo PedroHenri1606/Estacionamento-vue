@@ -1,4 +1,6 @@
-export class Configuracao{
+import { AbstractEntity } from "./abstract.entity"
+
+export class Configuracao extends AbstractEntity{
     valorHora! : number
     valorMinutoMulta! : number
     inicioExpediente! : Date
