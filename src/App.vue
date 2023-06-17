@@ -1,15 +1,19 @@
 <template>
 
+<div class="icone">
+<img src="/estacionamento.png">
+</div>
+
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-   
-    <img src="/estacionamento.png">
-    
+       
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+    
       <ul class="navbar-nav">
         <li class="nav-item ">
           <router-link to="/"> <a class="nav-link active" aria-current="page" href="#"> Menu </a></router-link>
@@ -117,5 +121,10 @@ nav {
 img {
   height: 8vh;
  
+}
+
+.icone{
+
+  background-color: white;
 }
 </style>
