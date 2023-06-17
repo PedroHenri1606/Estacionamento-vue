@@ -1,6 +1,33 @@
 <template>
 
+
 <div class="container tabela">
+    <div class="container text-center">
+        <div class="row align-items-start">
+            <div class="col opcoes">
+                Lista de Movimentações
+            </div>
+            <div class="col opcoes">  
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Listar por</option>
+                    <option value="1">Ativos</option>
+                    <option value="2">Desativados</option>
+                </select>
+            </div>
+            <div class="col opcoes">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Informe o Id" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </form>
+            </div>
+            <div class="col opcoes">
+                <router-link to='/movimentacao/cadastrar'>
+                    <button type="button" class="btn btn-success "><img src="adicionar.usuario.png" class="botao-cadastrar">Adicionar Movimentação</button>
+                </router-link>
+            </div>
+        </div>
+    </div>
+
     <div class="row inicio">
         <div class="col"> ID       </div>
         <div class="col"> Condutor </div>
@@ -16,7 +43,7 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
 
     <div class="row itens">
@@ -25,7 +52,7 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
 
     <div class="row itens">
@@ -34,7 +61,7 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
     
     <div class="row itens">
@@ -43,7 +70,7 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
 
     <div class="row itens">
@@ -52,7 +79,7 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
 
     <div class="row itens">
@@ -61,7 +88,7 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
 
     <div class="row itens">
@@ -70,7 +97,7 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
 
     <div class="row itens">
@@ -79,28 +106,8 @@
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
         <div class="col"> 16/06/2023 </div>
-        <div class="col"> Aberta </div>
+        <div class="col situacao"> Aberta </div>
     </div>
-
-    
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-
-
-
 </div>
 
 </template>
@@ -113,12 +120,16 @@
 <style scoped>
 
 .tabela{
-    padding-top: 2vw;
+    margin-top: 2vw;
+    background-color: WHITE;
+    height: 75vh;
+    border-radius: 6px;
 
 }
 
 .inicio{
-    background-color: white;
+    background-color: rgba(128, 128, 128, 0.144);
+    color: grey;
     font-family: 'Lato';
     text-align: center;
     align-items: center;
@@ -142,13 +153,14 @@
 }
 
 .col{
-    font-size: 1.5vw;
+    font-size: 15px;
     font-weight: 100;
     font-family: 'Lato';
 }
 
 .itens:hover{
-    transform: scale(1.05);
+    transform: scale(1.02);
+    background-color: rgba(128, 128, 128, 0.144);
     transition: 2s;
 }
 
@@ -160,6 +172,31 @@
 .pagination{
     margin-top: 5vw;
     justify-content: center;
+}
+
+.opcoes{
+    background-color: white;
+    align-items: center;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 2vw;
+    font-size: 2vh;
+    font-weight: bolder;
+}
+
+
+.situacao{
+    color: green;
+    font-weight: bolder;
+    background-color: rgba(0, 128, 0, 0.349);
+    border-radius: 5px;
+   
+}
+
+.botao-cadastrar{
+    height: 2.5vh;
+    align-items: center;
+    margin-right: 1vh;
 }
 
 </style>
