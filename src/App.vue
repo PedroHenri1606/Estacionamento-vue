@@ -1,4 +1,5 @@
 <template>
+
 <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
    
@@ -9,9 +10,9 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Menu</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0  ">
+        <li class="nav-item ">
+          <router-link to="/"> <a class="nav-link active" aria-current="page" href="#"> Menu </a></router-link>
         </li>
 
         <li class="nav-item dropdown">
@@ -19,14 +20,15 @@
             Condutores
           </a>
           <ul class="dropdown-menu" >
-            <li><a  class="dropdown-item" href="#">Movimentações</a></li>
+            <router-link to='/condutor/listar'>         <li><a  class="dropdown-item">Listar</a></li></router-link>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Condutores</a></li>
-            <li><a  class="dropdown-item" href="#">Veiculos</a></li>
-            <li><a  class="dropdown-item" href="#">Configurações</a></li>
+            <router-link to='/condutor/cadastrar'>      <li><a  class="dropdown-item">Cadastrar</a></li></router-link>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Marca</a></li>
-            <li><a  class="dropdown-item" href="#">Modelo</a></li>
+            <router-link to='/condutor/editar'>         <li><a  class="dropdown-item">Editar</a></li></router-link>
+            <router-link to='/condutor/desativar'>      <li><a  class="dropdown-item">Desativar</a></li></router-link>
+            <router-link to='/condutor/ativar'>         <li><a  class="dropdown-item">Ativar</a></li></router-link>
+            <li><hr class="dropdown-divider"></li>
+            <router-link to='/condutor/deletar'>        <li><a  class="dropdown-item">Deletar</a></li></router-link>
           </ul>
         </li> 
 
@@ -35,14 +37,15 @@
             Veiculos
           </a>
           <ul class="dropdown-menu" >
-            <li><a  class="dropdown-item" href="#">Movimentações</a></li>
+            <router-link to='/veiculo/listar'>          <li><a  class="dropdown-item">Listar</a></li></router-link>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Condutores</a></li>
-            <li><a  class="dropdown-item" href="#">Veiculos</a></li>
-            <li><a  class="dropdown-item" href="#">Configurações</a></li>
+            <router-link to='/veiculo/cadastrar'>       <li><a  class="dropdown-item">Cadastrar</a></li></router-link>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Marca</a></li>
-            <li><a  class="dropdown-item" href="#">Modelo</a></li>
+            <router-link to='/veiculo/editar'>          <li><a  class="dropdown-item">Editar</a></li></router-link>
+            <router-link to='/veiculo/desativar'>       <li><a  class="dropdown-item">Desativar</a></li></router-link>
+            <router-link to='/veiculo/ativar'>          <li><a  class="dropdown-item">Ativar</a></li></router-link>
+            <li><hr class="dropdown-divider"></li>
+            <router-link to='/veiculo/deletar'>         <li><a  class="dropdown-item">Deletar</a></li></router-link>
           </ul>
         </li> 
 
@@ -51,14 +54,14 @@
             Movimentações
           </a>
           <ul class="dropdown-menu" >
-            <li><a  class="dropdown-item" href="#">Movimentações</a></li>
+            <router-link to='/movimentacao/listar'>     <li><a  class="dropdown-item"> Listar </a></li></router-link>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Condutores</a></li>
-            <li><a  class="dropdown-item" href="#">Veiculos</a></li>
-            <li><a  class="dropdown-item" href="#">Configurações</a></li>
+            <router-link to='/movimentacao/cadastrar'>  <li><a  class="dropdown-item">Cadastrar </a></li></router-link>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Marca</a></li>
-            <li><a  class="dropdown-item" href="#">Modelo</a></li>
+            <router-link to='/movimentacao/editar'>     <li><a  class="dropdown-item"> Editar </a></li></router-link>
+            <li><hr class="dropdown-divider"></li>
+            <router-link to='/movimentacao/finalizar'>  <li><a  class="dropdown-item"> Finalizar </a></li></router-link>
+            <router-link to='/movimentacao/faturar'>    <li><a  class="dropdown-item"> Faturar </a></li></router-link>
           </ul>
         </li> 
 
@@ -67,25 +70,17 @@
             Configurações
           </a>
           <ul class="dropdown-menu" >
-            <li><a  class="dropdown-item" href="#">Movimentações</a></li>
+            <router-link to='/configuracao/cadastrar'>  <li><a  class="dropdown-item">Cadastrar</a></li></router-link>
             <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Condutores</a></li>
-            <li><a  class="dropdown-item" href="#">Veiculos</a></li>
-            <li><a  class="dropdown-item" href="#">Configurações</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a  class="dropdown-item" href="#">Marca</a></li>
-            <li><a  class="dropdown-item" href="#">Modelo</a></li>
+            <router-link to='/configuracao/editar'>     <li><a  class="dropdown-item">Editar</a></li></router-link>
           </ul>
-        </li> 
-
-      </ul>
-
-
+        </li>      
+      </ul>   
     </div>
   </div>
 </nav>
 
-
+<router-view/>
 
 </template>
 
@@ -100,7 +95,6 @@
 }
 
 nav {
-  padding: 30px;
   background-color: white;
   font-weight: bolder;
   font-size: 20px;
@@ -122,6 +116,6 @@ nav {
 
 img {
   height: 8vh;
-  padding-right: 10vh;
+ 
 }
 </style>
