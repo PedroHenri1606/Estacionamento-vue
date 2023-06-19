@@ -2,29 +2,17 @@
     <div class="container tabela">
         <div class="container text-center">
             <div class="opcoes">
-                Cadastrar Condutor
+                Cadastrar Marca
             </div>
             <form>
                 <div class="row">
                     <div class="row mb-4">
-                        <label for="nome" class="col dado">Nome</label>
-                            <div class="col-sm-10">
-                                <input type="nome" class="form-control input">
-                            </div>
+                        <label for="inputEmail3" class="col dado">Nome</label>
+                        <div class="col-sm-10">
+                        <input type="nome" class="form-control input" id="input">
+                        </div>
                     </div>
-                    <div class="row mb-4">
-                        <label for="cpf" class="col dado">CPF</label>
-                            <div class="col-sm-10">
-                                <input type="cpf" class="form-control input">
-                            </div>
                     </div>
-                    <div class="row mb-4">
-                        <label for="telefone" class="col dado">Cell</label>
-                            <div class="col-sm-10">
-                                <input type="tel" class="form-control input">
-                            </div>
-                    </div>
-                </div>
             </form>
             <div>
                 <button type="submit" class="btn btn-outline-success botao">Cadastrar</button>
@@ -41,7 +29,7 @@
 <style scoped>
     
 form{
-    padding-top: 5%;
+    padding-top: 10%;
 }
 
 .tabela{
@@ -78,7 +66,7 @@ form{
 
 .botao{
     font-weight: bolder;
-    margin-top: 14%;
+    margin-top: 20%;
     font-size: 2.5vh;
     transition: 1s;
 }

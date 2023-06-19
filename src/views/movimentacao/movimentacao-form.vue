@@ -2,28 +2,33 @@
     <div class="container tabela">
         <div class="container text-center">
             <div class="opcoes">
-                Cadastrar Condutor
+                Cadastrar Movimentação
             </div>
             <form>
                 <div class="row">
                     <div class="row mb-4">
-                        <label for="nome" class="col dado">Nome</label>
+                        <label for="placa" class="col dado">Cliente</label>
                             <div class="col-sm-10">
-                                <input type="nome" class="form-control input">
+                                <select class="form-select input" aria-label="Default select example">
+                                    <option value="1">Pedro Henrique</option>
+                                    <option value="2">Pedro Henrique</option>
+                                    <option value="3">Pedro Henrique</option>
+                                </select>
                             </div>
                     </div>
+
                     <div class="row mb-4">
-                        <label for="cpf" class="col dado">CPF</label>
+                        <label for="modelo" class="col dado">Veiculo</label>
                             <div class="col-sm-10">
-                                <input type="cpf" class="form-control input">
+                                <select class="form-select input" aria-label="Default select example">
+                                    <option value="1">XRE 300</option>
+                                    <option value="2">300z</option>
+                                    <option value="3">Africa Twin 1100 Adventure</option>
+                                </select>
                             </div>
                     </div>
-                    <div class="row mb-4">
-                        <label for="telefone" class="col dado">Cell</label>
-                            <div class="col-sm-10">
-                                <input type="tel" class="form-control input">
-                            </div>
-                    </div>
+
+    
                 </div>
             </form>
             <div>
@@ -54,6 +59,7 @@ form{
 .input{
     width: 40%;
     height: 100%;
+    margin: 0%;
 }
  
 .opcoes{
@@ -70,6 +76,7 @@ form{
     background-color: white;
     align-items: center;
     color: #00000033;
+    padding-right: 0vw;
     padding-left: 5vw;
     font-size: 3vh;
     font-weight: bolder;
@@ -78,7 +85,7 @@ form{
 
 .botao{
     font-weight: bolder;
-    margin-top: 14%;
+    margin-top: 21%;
     font-size: 2.5vh;
     transition: 1s;
 }

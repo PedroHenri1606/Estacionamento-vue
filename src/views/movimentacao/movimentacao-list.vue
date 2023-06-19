@@ -22,7 +22,7 @@
             </div>
             <div class="col opcoes">
                 <router-link to='/movimentacao/cadastrar'>
-                    <button type="button" class="btn btn-success "><img src="adicionar.usuario.png" class="botao-cadastrar">Adicionar Movimentação</button>
+                    <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Movimentação</button>
                 </router-link>
             </div>
         </div>
