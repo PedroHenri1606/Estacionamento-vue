@@ -58,7 +58,7 @@
                     <div class="row mb-4">
                         <label for="ano" class="col dado">Ano</label>
                             <div class="col-sm-10">
-                                <input type="dado" class="form-control input">
+                                <input type="number" class="form-control input">
                             </div>
                     </div>
 

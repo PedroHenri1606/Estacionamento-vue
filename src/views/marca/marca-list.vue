@@ -30,56 +30,81 @@
     
         <div class="row inicio">
             <div class="col"> ID       </div>
-            <div class="col"> Nome </div>
             <div class="col"> Situação </div>
+            <div class="col"> Nome </div>
+            <div class="col"> Detalhes</div>
         </div>
     
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
     
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
     
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
         
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
     
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
     
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
     
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
         
         <div class="row itens">
             <div class="col"> 1       </div>
-            <div class="col"> Honda </div>
             <div class="col situacao"> Ativo </div>
+            <div class="col"> Honda </div>
+            <div class="col"> 
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            </div>
         </div>
     </div>
     
@@ -131,11 +156,7 @@
         font-family: 'Lato';
     }
     
-    .itens:hover{
-        transform: scale(1.02);
-        background-color: rgba(128, 128, 128, 0.144);
-        transition: 2s;
-    }
+
     
     .page-link{
         width: 2vw;

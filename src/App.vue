@@ -67,23 +67,31 @@
 
 nav {
   background-color: white;
-  font-weight: bolder;
   font-size: 20px;
   
-
   a {
-    font-weight: bold;
     color: white;
-
+    transition: 1s;
+    
     &.router-link-exact-active {
       color: #42b983;
+      font-size: 2.5vh;
+      font-weight: bolder;
+      
     }
   }
+}
+
+ a:hover{
+  transform: scale(1.05);
+  transition: 1s;
+ 
+ } 
 
   .topo{
     text-align: center;
   }
-}
+
 
 img {
   height: 8vh;
@@ -91,7 +99,6 @@ img {
 }
 
 .icone{
-
   background-color: white;
 }
 </style>

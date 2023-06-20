@@ -30,83 +30,99 @@
 
     <div class="row inicio">
         <div class="col"> ID       </div>
+        <div class="col"> Situação </div>
         <div class="col"> Condutor </div>
         <div class="col"> Veiculo </div>
         <div class="col"> Placa </div>
-        <div class="col"> Data Entrada </div>
-        <div class="col"> Situação </div>
+        <div class="col"> Detalhes </div>
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
-        <div class="col"> 2       </div>
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
-        <div class="col"> 3       </div>
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
     
     <div class="row itens">
-        <div class="col"> 4       </div>
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
-        <div class="col"> 5       </div>
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
-        <div class="col"> 6       </div>
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
-        <div class="col"> 7       </div>
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
-        <div class="col"> 8       </div>
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Aberta </div>
         <div class="col"> Pedro </div>
         <div class="col"> XRE 300 </div>
         <div class="col"> RHT-5F18 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Aberta </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 </div>
 
@@ -156,12 +172,6 @@
     font-size: 15px;
     font-weight: 100;
     font-family: 'Lato';
-}
-
-.itens:hover{
-    transform: scale(1.02);
-    background-color: rgba(128, 128, 128, 0.144);
-    transition: 2s;
 }
 
 .page-link{

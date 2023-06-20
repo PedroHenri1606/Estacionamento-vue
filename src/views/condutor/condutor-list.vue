@@ -29,83 +29,102 @@
 
     <div class="row inicio">
         <div class="col"> ID       </div>
+        <div class="col"> Situação </div>
         <div class="col"> Nome </div>
         <div class="col"> CPF </div>
         <div class="col"> Telefone </div>
-        <div class="col"> Data de Cadastro </div>
-        <div class="col"> Situação </div>
+        <div class="col"> Detalhes </div>
+        
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
+        
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
     
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>
     </div>
 
     <div class="row itens">
         <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
         <div class="col"> Pedro </div>
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
-        <div class="col"> 16/06/2023 </div>
-        <div class="col situacao"> Ativo </div>
+        <div class="col"> 
+            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+        </div>  
+
     </div>
 </div>
 
@@ -145,7 +164,7 @@
     text-align: center;
     border-radius: 5px;
     margin: 2vh;
-    transition: 2s;
+    
     height: 5vh;
     
 }
@@ -156,11 +175,6 @@
     font-family: 'Lato';
 }
 
-.itens:hover{
-    transform: scale(1.02);
-    background-color: rgba(128, 128, 128, 0.144);
-    transition: 2s;
-}
 
 .page-link{
     width: 2vw;
@@ -188,7 +202,7 @@
     font-weight: bolder;
     background-color: rgba(0, 128, 0, 0.349);
     border-radius: 5px;
-   
+    margin: 2vh;
 }
 
 .botao-cadastrar{

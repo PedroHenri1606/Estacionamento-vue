@@ -18,11 +18,11 @@
                 </div>
                     
                 <div class="row">
-                    <label for="valorHora" class="col-2 col-sm-2 dado mb-4">Abertura</label>     
+                    <label for="abertura" class="col-2 col-sm-2 dado mb-4">Abertura</label>     
                         <div class="col-2 col-sm-3">
                             <input type="time" class="form-control input">
                         </div>    
-                    <label for="valorMinutoMulta" class="col-2 col-sm-3 dado">Fechamento</label>
+                    <label for="fechamento" class="col-2 col-sm-3 dado">Fechamento</label>
                         <div class="col-2 col-sm-3">
                              <input type="time" class="form-control input">
                         </div>
@@ -30,33 +30,33 @@
 
                     
                 <div class="row">
-                    <label for="valorHora" class="col-2 col-sm-3 dado mb-4">Tempo para Desconto</label>     
+                    <label for="tempoParaDesconto" class="col-2 col-sm-3 dado mb-4">Tempo para Desconto</label>     
                         <div class="col-2 col-sm-2">
                             <input type="time" class="form-control input">
                         </div>    
-                    <label for="valorMinutoMulta" class="col-2 col-sm-3 dado">Tempo de Desconto</label>
+                    <label for="tempoDeDesconto" class="col-2 col-sm-3 dado">Tempo de Desconto</label>
                         <div class="col-2 col-sm-3">
                              <input type="time" class="form-control input">
                         </div>
                 </div>
 
                 <div class="row">
-                    <label for="valorHora" class="col-2 col-sm-3 dado mb-4">Gerar Desconto</label>     
+                    <label for="gerarDesconto" class="col-2 col-sm-3 dado mb-4">Gerar Desconto</label>     
                         <div class="col-2 col-sm-2 form-switch">
                             <input class="form-check-input dado" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                         </div>    
-                    <label for="valorMinutoMulta" class="col-2 col-sm-3 dado">Vagas Moto</label>
+                    <label for="vagasMoto" class="col-2 col-sm-3 dado">Vagas Moto</label>
                         <div class="col-2 col-sm-3">
                              <input type="number" class="form-control input">
                         </div>
                 </div>
 
                 <div class="row">
-                    <label for="valorHora" class="col-2 col-sm-2 dado mb-4">Vagas Carro</label>     
+                    <label for="vagasCarro" class="col-2 col-sm-2 dado mb-4">Vagas Carro</label>     
                         <div class="col-2 col-sm-3">
                             <input type="number" class="form-control input">
                         </div>    
-                    <label for="valorMinutoMulta" class="col-2 col-sm-3 dado">Vagas Van</label>
+                    <label for="vagasVan" class="col-2 col-sm-3 dado">Vagas Van</label>
                         <div class="col-2 col-sm-3">
                              <input type="number" class="form-control input">
                         </div>
@@ -89,8 +89,6 @@ form{
 }
 
 .input{
-  
-
     margin: 0%;
 }
  
