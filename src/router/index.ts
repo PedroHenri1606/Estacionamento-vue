@@ -26,7 +26,12 @@ const routes: Array<RouteRecordRaw> = [
     path: '/condutor/cadastrar',
     name: 'condutor-form',
     component: () => import(/* webpackChunkName: "form" */ '../views/condutor/condutor-form.vue')
-  },  
+  },
+  {
+    path: '/condutor/detalhar',
+    name: 'condutor-detalhar',
+    component: () => import(/* webpackChunkName: "detalhar" */ '../views/condutor/condutor-detalhar.vue')
+  }, 
   {
     path: '/veiculo/listar',
     name: 'veiculo-list',

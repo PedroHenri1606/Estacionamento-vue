@@ -82,12 +82,6 @@ nav {
   }
 }
 
- a:hover{
-  transform: scale(1.05);
-  transition: 1s;
- 
- } 
-
   .topo{
     text-align: center;
   }

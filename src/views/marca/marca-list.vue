@@ -1,6 +1,5 @@
 <template>
 
-
     <div class="container tabela">
         <div class="container text-center">
             <div class="row align-items-start">

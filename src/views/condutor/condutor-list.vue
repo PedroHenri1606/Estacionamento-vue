@@ -44,19 +44,9 @@
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
         <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-        </div>
-        
-    </div>
-
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
         </div>
     </div>
 
@@ -67,7 +57,22 @@
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
         <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
+        </div>
+    </div>
+
+    <div class="row itens">
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
+        <div class="col"> Pedro </div>
+        <div class="col"> 102.508.709.75 </div>
+        <div class="col"> 45 998265476 </div>
+        <div class="col"> 
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
         </div>
     </div>
     
@@ -78,7 +83,22 @@
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
         <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
+        </div>
+    </div>
+    
+    <div class="row itens">
+        <div class="col"> 1       </div>
+        <div class="col situacao"> Ativo </div>
+        <div class="col"> Pedro </div>
+        <div class="col"> 102.508.709.75 </div>
+        <div class="col"> 45 998265476 </div>
+        <div class="col"> 
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
         </div>
     </div>
 
@@ -89,7 +109,9 @@
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
         <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
         </div>
     </div>
 
@@ -100,7 +122,9 @@
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
         <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
         </div>
     </div>
 
@@ -111,20 +135,10 @@
         <div class="col"> 102.508.709.75 </div>
         <div class="col"> 45 998265476 </div>
         <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
+            <router-link to='/condutor/detalhar'>
+                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+            </router-link>
         </div>
-    </div>
-
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-        </div>  
-
     </div>
 </div>
 
