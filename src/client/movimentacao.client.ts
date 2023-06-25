@@ -7,9 +7,9 @@ export class MovimentacaoClient {   // Client é como se fosse a controller - el
 
     private axiosClient : AxiosInstance;
 
-    constructor(){
+    constructor(){  
         this.axiosClient = axios.create({
-            baseURL: 'http://localhot:8080/api/movimentacao',
+            baseURL: 'http://localhost:5032/api/movimentacao',
             headers: {'Content-Type' : 'application/json'}
         })
     }
@@ -19,6 +19,16 @@ export class MovimentacaoClient {   // Client é como se fosse a controller - el
             return (await this.axiosClient.get<Movimentacao>(`/${id}`)).data
         
         } catch (error : any){
+            return Promise.reject(error.response)
+        }
+    }
+
+    
+    public async listarTodos(): Promise<Movimentacao[]>{
+        try{
+            return (await this.axiosClient.get<Movimentacao[]>(`/listar`)).data
+        
+        } catch(error: any){
             return Promise.reject(error.response)
         }
     }
@@ -34,7 +44,7 @@ export class MovimentacaoClient {   // Client é como se fosse a controller - el
 
     public async editar (movimentacao: Movimentacao): Promise<void>{
         try{
-            return (await this.axiosClient.put(`/editar?id=${movimentacao.id}`, movimentacao)).data
+            return (await this.axiosClient.put(`/editar/${movimentacao.id}`, movimentacao)).data
         
         } catch (error: any) {
             return Promise.reject(error.response)
@@ -43,10 +53,12 @@ export class MovimentacaoClient {   // Client é como se fosse a controller - el
 
     public async desativar(movimentacao: Movimentacao): Promise<void>{
         try{
-            return (await this.axiosClient.put(`/desativar?id=${movimentacao.id}`, movimentacao)).data
+            return (await this.axiosClient.put(`/desativar/${movimentacao.id}`, movimentacao)).data
         
         } catch (error: any){
             return Promise.reject(error.response)
         }
     }
 }
+
+export default new MovimentacaoClient;

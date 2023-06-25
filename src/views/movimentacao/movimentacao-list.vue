@@ -28,7 +28,7 @@
         </div>
     </div>
 
-    <div class="row inicio">
+    <div class="row inicio">    
         <div class="col"> ID       </div>
         <div class="col"> Situação </div>
         <div class="col"> Condutor </div>

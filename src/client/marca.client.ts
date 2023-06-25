@@ -7,9 +7,9 @@ export class MarcaClient{
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhot:8080/api/marca',
+            baseURL: 'http://localhost:5033/api/marca',
             headers: {'Content-Type' : 'application/json'}
-        })
+        });
     }
 
     public async buscaPorId(id : number): Promise<Marca> {
@@ -21,20 +21,30 @@ export class MarcaClient{
         }
     }
 
-    public async cadastrar(marca: Marca) : Promise<void>{
+        
+    public async listarTodos(): Promise<Marca[]>{
         try{
-            return (await this.axiosClient.post('/', marca))
+            return (await this.axiosClient.get<Marca[]>(`/listar`)).data
+        
+        } catch(error: any){
+            return Promise.reject(error.response)
+        }
+    }
+
+    public async cadastrar(marca: Marca) : Promise<string>{
+        try{
+            return (await this.axiosClient.post<string>('', marca)).data
 
         } catch (error:any){
             return Promise.reject(error.response)
         }
     }
 
-    public async editar (marca: Marca): Promise<void>{
+    public async editar (id: number, marca: Marca): Promise<string>{
         try{
-            return (await this.axiosClient.put(`/editar?id=${marca.id}`, marca)).data
+            return (await this.axiosClient.put(`/editar?id=${id}`, marca)).data
         
-        } catch (error: any) {
+        } catch (error: any) {  
             return Promise.reject(error.response)
         }
     }
@@ -48,12 +58,23 @@ export class MarcaClient{
         }
     }
 
-    public async deletar(marca: Marca): Promise<void>{
+    public async ativar(marca: Marca): Promise<void>{
         try{
-            return (await this.axiosClient.delete(`/deletar?id=${marca.id}`)).data
+            return (await this.axiosClient.put(`/ativar?id=${marca.id}`, marca)).data
+        
+        } catch (error: any){
+            return Promise.reject(error.response)
+        }
+    }
+
+    public async deletar(id: number): Promise<void>{
+        try{
+            return (await this.axiosClient.delete(`/deletar?id=${id}`)).data
 
         } catch (error: any){
             return Promise.reject(error.response)
         }
     }
 }
+
+export default new MarcaClient();

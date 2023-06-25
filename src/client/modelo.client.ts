@@ -7,7 +7,7 @@ export class ModeloClient{
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhot:8080/api/modelo',
+            baseURL: 'http://localhost:5032/api/modelo',
             headers: {'Content-Type' : 'application/json'}
         })
     }
@@ -17,6 +17,16 @@ export class ModeloClient{
             return (await this.axiosClient.get<Modelo>(`/${id}`)).data
         
         } catch (error : any){
+            return Promise.reject(error.response)
+        }
+    }
+
+        
+    public async listarTodos(): Promise<Modelo[]>{
+        try{
+            return (await this.axiosClient.get<Modelo[]>(`/listar`)).data
+        
+        } catch(error: any){
             return Promise.reject(error.response)
         }
     }
@@ -57,3 +67,5 @@ export class ModeloClient{
         }
     }
 }
+
+export default new ModeloClient();

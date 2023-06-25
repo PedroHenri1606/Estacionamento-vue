@@ -7,6 +7,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Menu',
     component: App
   },
+
   {
     path: '/movimentacao/listar',
     name: 'movimentacao-listar',
@@ -17,6 +18,14 @@ const routes: Array<RouteRecordRaw> = [
     name: 'movimentacao-form',
     component: () => import(/* webpackChunkName: "form" */ '../views/movimentacao/movimentacao-form.vue')
   },  
+  {
+    path: '/movimentacao/detalhar',
+    name: 'movimentacao-detalhar',
+    component: () => import(/* webpackChunkName: "detalhar" */ '../views/movimentacao/movimentacao-detalhar.vue')
+  }, 
+
+
+
   {
     path: '/condutor/listar',
     name: 'condutor-list',
@@ -31,7 +40,10 @@ const routes: Array<RouteRecordRaw> = [
     path: '/condutor/detalhar',
     name: 'condutor-detalhar',
     component: () => import(/* webpackChunkName: "detalhar" */ '../views/condutor/condutor-detalhar.vue')
-  }, 
+  },
+
+
+  
   {
     path: '/veiculo/listar',
     name: 'veiculo-list',
@@ -43,21 +55,34 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "form" */ '../views/veiculo/veiculo-form.vue')
   },  
   {
+    path: '/veiculo/detalhar',
+    name: 'veiculo-detalhar',
+    component: () => import(/* webpackChunkName: "form" */ '../views/veiculo/veiculo-detalhar.vue'),  
+  },
+    
+
+  {
     path: '/marca/listar',
-    name: 'marca-list',
-    component: () => import(/* webpackChunkName: "list" */ '../views/marca/marca-list.vue')
-  },  
+    name: 'marca-listar',
+    component: () => import(/* webpackChunkName: "form" */ '../views/marca/marca-list.vue')
+  },
   {
     path: '/marca/cadastrar',
-    name: 'marca-form',
-    component: () => import(/* webpackChunkName: "form" */ '../views/marca/marca-form.vue')
+    name: 'marca-formulario-view',
+    component: () => import(/* webpackChunkName: "form" */ '../views/marca/marca-form.vue'),  
   },
+  {
+    path: '/marca/detalhar',
+    name: 'marca-detalhar',
+    component: () => import(/* webpackChunkName: "form" */ '../views/marca/marca-detalhar.vue'),  
+  },
+
+
   {
     path: '/configuracao/cadastrar',
     name: 'configuracao-form',
     component: () => import(/* webpackChunkName: "form" */ '../views/configuracao/configuracao-form.vue')
   }      
-  
 ]
 
 const router = createRouter({

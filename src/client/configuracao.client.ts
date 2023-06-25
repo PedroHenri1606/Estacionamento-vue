@@ -7,7 +7,7 @@ export class ConfiguracaoClient{
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:8080/api/condutor',
+            baseURL: 'http://localhost:5032/api/condutor',
             headers: {'Content-Type' : 'application/json'}
         })
     }
@@ -30,12 +30,14 @@ export class ConfiguracaoClient{
         }
     }
 
-    public async editar (configuracao: Configuracao): Promise<void>{
+    public async editar (id: number, configuracao: Configuracao): Promise<void>{
         try{
-            return (await this.axiosClient.put(`/editar?id=${configuracao.id}`, configuracao)).data
+            return (await this.axiosClient.put(`/editar/${id}`, configuracao)).data
         
         } catch(error: any){
             return Promise.reject(error.response)  
         } 
     }
 }
+
+export default new ConfiguracaoClient();
