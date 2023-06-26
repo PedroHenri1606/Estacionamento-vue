@@ -98,8 +98,6 @@
             }
         }
     });
-
-    
     </script>
     
     <style scoped>

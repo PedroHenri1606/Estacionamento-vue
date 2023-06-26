@@ -2,7 +2,7 @@
  <div class="container tabela">
         <div class="container text-center">
             <div class="opcoes">
-                Detalhar Marca
+                Cadastrar Marca
             </div>
             
             <form>
@@ -32,9 +32,8 @@
                 </router-link>
                 <button v-if="this.form === undefined" type="button" class="btn btn-outline-success botao"
                     @click="onClickCadastrar()">
-                        Salvar
+                        Cadastrar
                 </button>
-           
             </div>
         </div>
     </div>       
@@ -100,37 +99,6 @@ export default defineComponent({
         marcaClient.buscaPorId(id)
         .then(sucess => {
           this.marca = sucess
-        })
-        .catch(error => {
-          this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
-          this.mensagem.titulo = "Error. ";
-          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
-        });
-    },
-    onClickEditar(){
-        marcaClient.editar(this.marca.id, this.marca)
-        .then(sucess => {
-          this.marca = new Marca()
-          
-          this.mensagem.ativo = true;
-          this.mensagem.mensagem = sucess;
-          this.mensagem.titulo = "Parabens. ";
-          this.mensagem.css = "alert alert-success alert-dismissible fade show";
-        })
-        .catch(error => {
-          this.mensagem.ativo = true;
-          this.mensagem.mensagem = error;
-          this.mensagem.titulo = "Error. ";
-          this.mensagem.css = "alert alert-danger alert-dismissible fade show";
-        });
-    },
-    onClickExcluir(){
-        marcaClient.deletar(this.marca.id)
-        .then(sucess => {
-          this.marca = new Marca()
-          
-          this.$router.push({ name: 'marca-listar' });
         })
         .catch(error => {
           this.mensagem.ativo = true;

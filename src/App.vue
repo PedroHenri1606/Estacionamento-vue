@@ -29,6 +29,12 @@
         </li>
 
         <li class="nav-item">
+          <router-link to='/modelo/listar'>
+            <a class="nav-link active">Modelos</a>
+          </router-link>
+        </li>
+
+        <li class="nav-item">
           <router-link to='/marca/listar'>
             <a class="nav-link active">Marcas</a>
           </router-link>

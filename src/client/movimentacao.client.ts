@@ -9,7 +9,7 @@ export class MovimentacaoClient {   // Client é como se fosse a controller - el
 
     constructor(){  
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:5032/api/movimentacao',
+            baseURL: 'http://localhost:5033/api/movimentacao',
             headers: {'Content-Type' : 'application/json'}
         })
     }

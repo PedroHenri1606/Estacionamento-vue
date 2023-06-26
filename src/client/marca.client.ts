@@ -1,5 +1,5 @@
-import { Marca } from "@/model/marca";
 import axios ,{AxiosInstance} from "axios";
+import { Marca } from "@/model/marca";
 
 export class MarcaClient{
 
@@ -49,7 +49,7 @@ export class MarcaClient{
         }
     }
 
-    public async desativar(marca: Marca): Promise<void>{
+    public async desativar(marca: Marca): Promise<string>{
         try{
             return (await this.axiosClient.put(`/desativar?id=${marca.id}`, marca)).data
         
@@ -58,7 +58,7 @@ export class MarcaClient{
         }
     }
 
-    public async ativar(marca: Marca): Promise<void>{
+    public async ativar(marca: Marca): Promise<string>{
         try{
             return (await this.axiosClient.put(`/ativar?id=${marca.id}`, marca)).data
         
@@ -67,7 +67,7 @@ export class MarcaClient{
         }
     }
 
-    public async deletar(id: number): Promise<void>{
+    public async deletar(id: number): Promise<string>{
         try{
             return (await this.axiosClient.delete(`/deletar?id=${id}`)).data
 

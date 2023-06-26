@@ -33,118 +33,73 @@
         <div class="col"> Nome </div>
         <div class="col"> CPF </div>
         <div class="col"> Telefone </div>
-        <div class="col"> Detalhes </div>
-        
+        <div class="col"> Detalhes </div>   
     </div>
 
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
-        </div>
-    </div>
-
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
-        </div>
-    </div>
-
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
-        </div>
-    </div>
-    
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
-        </div>
-    </div>
-    
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
+    <div v-for="item in condutorList" :key="item.id">
+        <div class="row itens">     
+            <div class="col">
+                {{ item.id }}
+            </div>
+            <div v-if="item.ativo" class="col ativo"> 
+                <span> Ativo </span>
+            </div>
+            <div v-if="!item.ativo" class="col inativo"> 
+                <span> Inativo </span>
+            </div>
+            <div class="col">
+                {{ item.nome }}
+            </div>
+            <div class="col">
+                {{ item.cpf }}
+            </div>
+            <div class="col">
+                {{ item.telefone }}
+            </div>
+            <div class="col">
+            <div class="btn-group col" role="group" aria-label="Basic mixed styles example">
+                <router-link  :to="{name: 'condutor-detalhar', query: {id: item.id}}">
+                    <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+                </router-link>
+            </div>
         </div>
     </div>
 
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
-        </div>
-    </div>
-
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
-        </div>
-    </div>
-
-    <div class="row itens">
-        <div class="col"> 1       </div>
-        <div class="col situacao"> Ativo </div>
-        <div class="col"> Pedro </div>
-        <div class="col"> 102.508.709.75 </div>
-        <div class="col"> 45 998265476 </div>
-        <div class="col"> 
-            <router-link to='/condutor/detalhar'>
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-            </router-link>
-        </div>
     </div>
 </div>
 
 </template>
 
 <script lang="ts">
+
+import { defineComponent } from 'vue';
+
+    import { Condutor } from '@/model/condutor';
+    import condutorClient from '@/client/condutor.client';
+
+    export default defineComponent({
+        name: 'CondutorLista',
+        data() {
+            return {
+                condutorList : new Array<Condutor>()
+            }
+        },
+        mounted(){
+            this.findAll();
+        },
+        methods: {
+
+            findAll(){
+                condutorClient.listarTodos()
+                .then(sucess => {
+                    this.condutorList = sucess
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+            }
+        }
+    });
 
 </script>
 
@@ -211,13 +166,19 @@
 }
 
 
-.situacao{
-    color: green;
-    font-weight: bolder;
-    background-color: rgba(0, 128, 0, 0.349);
-    border-radius: 5px;
-    margin: 2vh;
-}
+.inativo{
+        color: red;
+        font-weight: bolder;
+        background-color: rgba(255, 0, 0, 0.349);
+        border-radius: 5px;
+    }
+
+    .ativo{
+        color: green;
+        font-weight: bolder;
+        background-color: rgba(0, 128, 0, 0.349);
+        border-radius: 5px;
+    }
 
 .botao-cadastrar{
     height: 2.5vh;

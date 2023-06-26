@@ -9,7 +9,7 @@ export class CondutorClient {   // Client é como se fosse a controller - ela se
 
     constructor(){
         this.axiosClient = axios.create({
-            baseURL: 'http://localhost:5032/api/condutor',
+            baseURL: 'http://localhost:5033/api/condutor',
             headers: {'Content-Type' : 'application/json'}
         })
     }
@@ -32,36 +32,45 @@ export class CondutorClient {   // Client é como se fosse a controller - ela se
         }
     }
 
-    public async cadastrar(condutor: Condutor) : Promise<void>{
+    public async cadastrar(condutor: Condutor) : Promise<string>{
         try{
-            return (await this.axiosClient.post('/', condutor))
+            return (await this.axiosClient.post('', condutor))
 
         } catch (error:any){
             return Promise.reject(error.response)
         }
     }
 
-    public async editar (id: number, condutor: Condutor): Promise<void>{
+    public async editar (id: number, condutor: Condutor): Promise<string>{
         try{
-            return (await this.axiosClient.put(`/editar/${id}`, condutor)).data
+            return (await this.axiosClient.put(`/editar?id=${id}`, condutor)).data
         
         } catch (error: any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async desativar(condutor: Condutor): Promise<void>{
+    public async desativar(condutor: Condutor): Promise<string>{
         try{
-            return (await this.axiosClient.put(`/desativar/${condutor.id}`, condutor)).data
+            return (await this.axiosClient.put(`/desativar?id=${condutor.id}`, condutor)).data
         
         } catch (error: any){
             return Promise.reject(error.response)
         }
     }
 
-    public async deletar(condutor: Condutor): Promise<void>{
+    public async ativar(condutor: Condutor): Promise<string>{
         try{
-            return (await this.axiosClient.delete(`/deletar/${condutor.id}`)).data
+            return (await this.axiosClient.put(`/ativar?id=${condutor.id}`, condutor)).data
+        
+        } catch (error: any){
+            return Promise.reject(error.response)
+        }
+    }
+
+    public async deletar(id: number): Promise<string>{
+        try{
+            return (await this.axiosClient.delete(`/deletar?id=${id}`)).data
 
         } catch (error: any){
             return Promise.reject(error.response)
