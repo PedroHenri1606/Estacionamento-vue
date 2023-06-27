@@ -43,7 +43,7 @@
 
             <div>
                 <router-link type="button" class="btn btn-outline-success botao" 
-                    to="/marca/listar">Voltar
+                    to="/condutor/listar">Voltar
                 </router-link>
                 <button v-if="this.form === undefined" type="button" class="btn btn-outline-success botao"
                     @click="onClickEditar()">

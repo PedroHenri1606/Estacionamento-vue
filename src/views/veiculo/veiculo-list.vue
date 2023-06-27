@@ -37,100 +37,37 @@
             <div class="col"> Detalhes</div>
         </div>
     
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
-        </div>
-        
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
-        </div>
-    
-        <div class="row itens">
-            <div class="col"> 1       </div>
-            <div class="col situacao"> Ativo </div>
-            <div class="col"> XRE 300 </div>
-            <div class="col"> Honda </div>
-            <div class="col"> RHT-5F18 </div>
-            <div class="col"> Moto </div>
-            <div class="col"> 
-                <button type="submit" class="btn btn-outline-success botao">Detalhar</button>    
-            </div>   
+        <div v-for="item in veiculoList" :key="item.id">
+            <div class="row itens">     
+                <div class="col">
+                    {{ item.id }}
+                </div>
+                <div v-if="item.ativo" class="col ativo"> 
+                    <span> Ativo </span>
+                </div>
+                <div v-if="!item.ativo" class="col inativo"> 
+                    <span> Inativo </span>
+                </div>
+                <div class="col">
+                    {{ item.modelo.nome }}
+                </div>
+                <div class="col">
+                    {{ item.modelo.marca.nome }}
+                </div>
+                <div class="col">
+                    {{ item.placa }}
+                </div>
+                <div class="col">
+                    {{ item.tipoVeiculo }}
+                </div>
+                <div class="col">
+                    <div class="btn-group col" role="group" aria-label="Basic mixed styles example">
+                        <router-link  :to="{name: 'veiculo-detalhar', query: {id: item.id}}">
+                            <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -138,6 +75,35 @@
     
     <script lang="ts">
     
+    import { defineComponent } from 'vue';
+    import { Veiculo } from '@/model/veiculo';
+    import veiculoClient from '@/client/veiculo.client';
+    
+        export default defineComponent({
+            name: 'veiculoList',
+            data() {
+                return {
+                    veiculoList : new Array<Veiculo>()
+                }
+            },
+            mounted(){
+                this.findAll();
+            },
+            methods: {
+    
+                findAll(){
+                    veiculoClient.listarTodos()
+                    .then(sucess => {
+                        this.veiculoList = sucess
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+                }
+            }
+        });
+    
+
     </script>
     
     <style scoped>
@@ -202,13 +168,19 @@
     }
     
     
-    .situacao{
-        color: green;
-        font-weight: bolder;
-        background-color: rgba(0, 128, 0, 0.349);
-        border-radius: 5px;
-       
-    }
+    .inativo{
+            color: red;
+            font-weight: bolder;
+            background-color: rgba(255, 0, 0, 0.349);
+            border-radius: 5px;
+        }
+    
+        .ativo{
+            color: green;
+            font-weight: bolder;
+            background-color: rgba(0, 128, 0, 0.349);
+            border-radius: 5px;
+        }
     
     .botao-cadastrar{
         height: 2.5vh;

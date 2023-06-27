@@ -7,39 +7,41 @@
             <form>
                 <div class="row">
                     <div class="row mb-4">
-                        <label for="modelo" class="col dado">Modelo</label>
-                            <div class="col-sm-10">
-                                <input type="nome" class="form-control input">
-                            </div>
+                        <label for="nome" class="col dado">Modelo</label>
+                        <div class="col-sm-10">
+                          <select class="form-select" v-model="veiculo.modelo">
+                            <option v-for="item in modeloList" :key="item.id" :value="item">{{ item.nome }}</option>
+                          </select>
+                        </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label for="placa" class="col dado">Placa</label>
+                        <label for="placa" class="col dado">Placa</label >
                             <div class="col-sm-10">
-                                <input type="cpf" class="form-control input">
+                                <input type="cpf" class="form-control input" v-model="veiculo.placa">
                             </div>
                     </div>
 
                     <div class="row mb-4">
                         <label for="cor" class="col dado">Cor</label>
                             <div class="col-sm-10">
-                                <select class="form-select input" aria-label="Default select example">
-                                    <option value="1">Amarelo</option>
-                                    <option value="2">Azul</option>
-                                    <option value="3">Bege</option>
-                                    <option value="4">Branco</option>
-                                    <option value="5">Cinza</option>
-                                    <option value="6">Dourado</option>
-                                    <option value="7">Grená</option>
-                                    <option value="8">Laranja</option>
-                                    <option value="9">Marrom</option>
-                                    <option value="10">Prata</option>
-                                    <option value="11">Preto</option>
-                                    <option value="12">Rosa</option>
-                                    <option value="13">Roxo</option>
-                                    <option value="14">Verde</option>
-                                    <option value="15">Vermelho</option>
-                                    <option value="16">Fantasia</option>
+                                <select class="form-select input" aria-label="Default select example" v-model="veiculo.cor">
+                                    <option value="AMARELO">AMARELO</option>
+                                    <option value="AZUL">AZUL</option>
+                                    <option value="BEGE">BEGE</option>
+                                    <option value="BRANCA">BRANCA</option>
+                                    <option value="CINZA5">CINZA</option>
+                                    <option value="DOURADA">DOURADA</option>
+                                    <option value="GRENÁ">GRENÁ</option>
+                                    <option value="LARANJA">LARANJA</option>
+                                    <option value="MARROM">MARROM</option>
+                                    <option value="PRATA">PRATA</option>
+                                    <option value="PRETA">PRETA</option>
+                                    <option value="ROSA">ROSA</option>
+                                    <option value="ROXA">ROXA</option>
+                                    <option value="VERDE">VERDE</option>
+                                    <option value="VERMELHA">VERMELHA</option>
+                                    <option value="FANTASIA">FANTASIA</option>
                                 </select>
                             </div>
                     </div>
@@ -47,10 +49,10 @@
                     <div class="row mb-4">
                         <label for="tipoVeiculo" class="col dado">Tipo</label>
                             <div class="col-sm-10">
-                                <select class="form-select input" aria-label="Default select example">
-                                    <option value="1">Carro</option>
-                                    <option value="2">Moto</option>
-                                    <option value="3">Van</option>
+                                <select class="form-select input" aria-label="Default select example" v-model="veiculo.tipoVeiculo">
+                                    <option value="Carro">Carro</option>
+                                    <option value="Van">Van</option>
+                                    <option value="Moto">Moto</option>
                                 </select>
                             </div>
                     </div>
@@ -58,14 +60,29 @@
                     <div class="row mb-4">
                         <label for="ano" class="col dado">Ano</label>
                             <div class="col-sm-10">
-                                <input type="number" class="form-control input">
+                                <input type="number" class="form-control input"  v-model="veiculo.ano">
                             </div>
                     </div>
-
                 </div>
             </form>
+
+            <div v-if="mensagem.ativo" class="row">
+                <div class="col-md-12 text-start">
+                    <div :class="mensagem.css" role="alert">
+                    <strong>{{ mensagem.titulo }}</strong> {{ mensagem.mensagem }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+
             <div>
-                <button type="submit" class="btn btn-outline-success botao">Cadastrar</button>
+                <router-link type="button" class="btn btn-outline-success botao" 
+                    to="/veiculo/listar">Voltar
+                </router-link>
+                <button v-if="this.form === undefined " type="button" class="btn btn-outline-success botao"
+                    @click="onClickCadastrar()">
+                        Cadastrar
+                </button>
             </div>
         </div>
     </div>    
@@ -73,6 +90,74 @@
     
 <script lang="ts">
     
+import modeloClient from '@/client/modelo.client';
+import { Modelo } from '@/model/modelo';
+import { Veiculo } from '@/model/veiculo';
+import veiculoClient from '@/client/veiculo.client';
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+    name: 'VeiculoFormulario',
+    data(){
+        return {
+            veiculo: new Veiculo,
+            modeloList: new Array<Modelo>(),
+
+            mensagem: {
+                ativo: false as boolean,
+                titulo: "" as string,
+                mensagem: "" as string,
+                css: "" as string
+            }
+        }
+    },
+
+    computed: {
+        id(){
+            return this.$route.query.id
+        },
+        form(){
+            return this.$route.query.form
+        }
+    },
+    mounted(){
+
+        if(this.id !== undefined){
+            this.findById(Number(this.id));
+        }
+        this.findAllModelos();
+    },
+    methods: {
+
+        findAllModelos(){
+            modeloClient.listarTodos()
+            .then(sucess => {
+                this.modeloList = sucess
+            })
+            .catch(error => {
+                console.log(error);
+            })
+        },
+
+        onClickCadastrar(){
+            veiculoClient.cadastrar(this.veiculo)
+            .then(sucess => {
+                this.mensagem.ativo = true;
+                this.mensagem.mensagem = sucess;
+                this.mensagem.titulo = "Parabens. ";
+                this.mensagem.css = "alert alert-success alert-dismissible fade show";
+
+                this.veiculo = new Veiculo
+            })
+            .catch(error => {
+                this.mensagem.ativo = true;
+                this.mensagem.mensagem = error;
+                this.mensagem.titulo = "Error. ";
+                this.mensagem.css = "alert alert-danger alert-dismissible fade show";
+            });
+        }
+    }
+})
     
 </script>
     

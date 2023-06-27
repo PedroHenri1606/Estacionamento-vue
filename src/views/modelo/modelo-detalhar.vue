@@ -2,67 +2,26 @@
     <div class="container tabela">
         <div class="container text-center">
             <div class="opcoes">
-                Detalhar Veiculo
+                Detalhar Modelo
             </div>
             
             <form>
                 <div class="row">
+
                     <div class="row mb-4">
                         <label for="nome" class="col dado">Modelo</label>
                         <div class="col-sm-10">
-                          <select class="form-select" v-model="veiculo.modelo">
-                            <option v-for="item in modeloList" :key="item.id" :value="item">{{ item.nome }}</option>
-                          </select>
+                            <input type="text" :disabled="this.form === 'excluir' ? '' : disabled" class="form-control input" v-model="modelo.nome">
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label for="placa" class="col dado">Placa</label >
-                            <div class="col-sm-10">
-                                <input type="cpf" class="form-control input" v-model="veiculo.placa">
-                            </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <label for="cor" class="col dado">Cor</label>
-                            <div class="col-sm-10">
-                                <select class="form-select input" aria-label="Default select example" v-model="veiculo.cor">
-                                    <option value="AMARELO">AMARELO</option>
-                                    <option value="AZUL">AZUL</option>
-                                    <option value="BEGE">BEGE</option>
-                                    <option value="BRANCA">BRANCA</option>
-                                    <option value="CINZA5">CINZA</option>
-                                    <option value="DOURADA">DOURADA</option>
-                                    <option value="GRENÁ">GRENÁ</option>
-                                    <option value="LARANJA">LARANJA</option>
-                                    <option value="MARROM">MARROM</option>
-                                    <option value="PRATA">PRATA</option>
-                                    <option value="PRETA">PRETA</option>
-                                    <option value="ROSA">ROSA</option>
-                                    <option value="ROXA">ROXA</option>
-                                    <option value="VERDE">VERDE</option>
-                                    <option value="VERMELHA">VERMELHA</option>
-                                    <option value="FANTASIA">FANTASIA</option>
-                                </select>
-                            </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <label for="tipoVeiculo" class="col dado">Tipo</label>
-                            <div class="col-sm-10">
-                                <select class="form-select input" aria-label="Default select example" v-model="veiculo.tipoVeiculo">
-                                    <option value="Carro">Carro</option>
-                                    <option value="Van">Van</option>
-                                    <option value="Moto">Moto</option>
-                                </select>
-                            </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <label for="ano" class="col dado">Ano</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control input"  v-model="veiculo.ano">
-                            </div>
+                        <label for="nome" class="col dado">Marca</label>
+                        <div class="col-sm-10">
+                          <select class="form-select" v-model="modelo.marca">
+                            <option v-for="item in marcaList" :key="item.id" :value="item">{{ item.nome }}</option>
+                          </select>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -79,7 +38,7 @@
 
             <div>
                 <router-link type="button" class="btn btn-outline-success botao" 
-                    to="/veiculo/listar">Voltar
+                    to="/marca/listar">Voltar
                 </router-link>
                 <button v-if="this.form === undefined" type="button" class="btn btn-outline-success botao"
                     @click="onClickEditar()">
@@ -105,17 +64,17 @@
 <script lang="ts">
 
 import modeloClient from '@/client/modelo.client';
+import marcaClient from '@/client/marca.client';
 import { Modelo } from '@/model/modelo';
-import { Veiculo } from '@/model/veiculo';
-import veiculoClient from '@/client/veiculo.client';
 import { defineComponent } from 'vue';
+import { Marca } from '@/model/marca';
 
 export default defineComponent({
     name: 'CondutorDetalhar',
     data(){
         return {
-            modeloList: new Array<Modelo>(),
-            veiculo: new Veiculo(),
+            marcaList: new Array<Marca>(),
+            modelo: new Modelo(),
 
             mensagem:{
                 ativo: false as boolean,
@@ -144,9 +103,9 @@ export default defineComponent({
     methods: {
         
         findAllMarcas(){
-            modeloClient.listarTodos()
+            marcaClient.listarTodos()
             .then(sucess => {
-                this.modeloList = sucess
+                this.marcaList = sucess
             })
             .catch(error => {
                 console.log(error);
@@ -154,9 +113,9 @@ export default defineComponent({
         },
         
         findById(id: number){
-            veiculoClient.buscaPorId(id)
+            modeloClient.buscaPorId(id)
             .then(sucess => {
-                this.veiculo = sucess
+                this.modelo = sucess
             })
             .catch(error => {
                 this.mensagem.ativo = true;
@@ -167,14 +126,14 @@ export default defineComponent({
         },
 
         onClickCadastrar(){
-            veiculoClient.cadastrar(this.veiculo)
+            modeloClient.cadastrar(this.modelo)
             .then(sucess => {
                 this.mensagem.ativo = true;
                 this.mensagem.mensagem = sucess;
                 this.mensagem.titulo = "Parabens";
                 this.mensagem.css = "alert alert-success alert-dismissible fade show";
 
-                this.veiculo = new Veiculo;
+                this.modelo = new Modelo;
             })
             .catch(error =>{
                 this.mensagem.ativo = true;
@@ -185,14 +144,14 @@ export default defineComponent({
         },
 
         onClickDeletar(){
-            veiculoClient.deletar(this.veiculo.id)
+            modeloClient.deletar(this.modelo.id)
             .then(sucess => {
                 this.mensagem.ativo = true;
                 this.mensagem.mensagem = sucess;
                 this.mensagem.titulo = "Parabens";
                 this.mensagem.css = "alert alert-success alert-dismissible fade show";
 
-                this.veiculo = new Veiculo;
+                this.modelo = new Modelo;
             })
             .catch(error =>{
                 this.mensagem.ativo = true;
@@ -203,14 +162,14 @@ export default defineComponent({
         },
 
         onClickEditar(){
-            veiculoClient.editar(this.veiculo.id, this.veiculo)
+            modeloClient.editar(this.modelo.id, this.modelo)
             .then(sucess => {
             this.mensagem.ativo = true;
             this.mensagem.mensagem = sucess;
             this.mensagem.titulo = "Parabens. ";
             this.mensagem.css = "alert alert-success alert-dismissible fade show";
 
-            this.veiculo = new Veiculo()
+            this.modelo = new Modelo()
         })
         .catch(error => {
           this.mensagem.ativo = true;
@@ -221,14 +180,14 @@ export default defineComponent({
     },
 
         onClickDesativar(){
-            veiculoClient.desativar(this.veiculo)
+            modeloClient.desativar(this.modelo)
             .then(sucess => {
                 this.mensagem.ativo = true;
                 this.mensagem.mensagem = sucess;
                 this.mensagem.titulo = "Parabens";
                 this.mensagem.css = "alert alert-success alert-dismissible fade show";
 
-                this.veiculo = new Veiculo;
+                this.modelo = new Modelo;
             })
             .catch(error =>{
                 this.mensagem.ativo = true;
@@ -239,14 +198,14 @@ export default defineComponent({
         },
 
         onClickAtivar(){
-            veiculoClient.ativar(this.veiculo)
+            modeloClient.ativar(this.modelo)
             .then(sucess => {
                 this.mensagem.ativo = true;
                 this.mensagem.mensagem = sucess;
                 this.mensagem.titulo = "Parabens";
                 this.mensagem.css = "alert alert-success alert-dismissible fade show";
 
-                this.veiculo = new Veiculo;
+                this.modelo = new Modelo;
             })
             .catch(error =>{
                 this.mensagem.ativo = true;

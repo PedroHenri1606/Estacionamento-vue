@@ -59,7 +59,24 @@ const routes: Array<RouteRecordRaw> = [
     name: 'veiculo-detalhar',
     component: () => import(/* webpackChunkName: "form" */ '../views/veiculo/veiculo-detalhar.vue'),  
   },
-    
+   
+  
+  {
+    path: '/modelo/listar',
+    name: 'modelo-listar',
+    component: () => import(/* webpackChunkName: "form" */ '../views/modelo/modelo-list.vue')
+  },
+  {
+    path: '/modelo/cadastrar',
+    name: 'modelo-formulario-view',
+    component: () => import(/* webpackChunkName: "form" */ '../views/modelo/modelo-form.vue'),  
+  },
+  {
+    path: '/modelo/detalhar',
+    name: 'modelo-detalhar',
+    component: () => import(/* webpackChunkName: "form" */ '../views/modelo/modelo-detalhar.vue'),  
+  },
+
 
   {
     path: '/marca/listar',

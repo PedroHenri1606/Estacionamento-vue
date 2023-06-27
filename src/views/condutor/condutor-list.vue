@@ -166,7 +166,7 @@ import { defineComponent } from 'vue';
 }
 
 
-.inativo{
+    .inativo{
         color: red;
         font-weight: bolder;
         background-color: rgba(255, 0, 0, 0.349);

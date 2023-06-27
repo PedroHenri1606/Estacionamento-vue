@@ -4,7 +4,7 @@
         <div class="container text-center">
             <div class="row align-items-start">
                 <div class="col opcoes">
-                    Lista de Marcas
+                    Lista de Modelos
                 </div>
                 <div class="col opcoes">  
                     <select class="form-select" aria-label="Default select example">
@@ -20,49 +20,47 @@
                     </form>
                 </div>
                 <div class="col opcoes">
-                    <router-link to='/marca/cadastrar'>
-                        <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Marca</button>
+                    <router-link to='/modelo/cadastrar'>
+                        <button type="button" class="btn btn-success "><img src="/adicionar.usuario.png" class="botao-cadastrar">Adicionar Condutor</button>
                     </router-link>
                 </div>
             </div>
         </div>
-
+    
         <div class="row inicio">
             <div class="col"> ID       </div>
             <div class="col"> Situação </div>
+            <div class="col"> Modelo </div>
             <div class="col"> Marca </div>
-            <div class="col"> Detalhes </div>
+            <div class="col"> Detalhes </div>   
         </div>
     
-            
-            <div v-for="item in marcasList" :key="item.id">
-                <div class="row itens">     
+        <div v-for="item in modeloList" :key="item.id">
+            <div class="row itens">     
                 <div class="col">
                     {{ item.id }}
                 </div>
-
-
                 <div v-if="item.ativo" class="col ativo"> 
                     <span> Ativo </span>
                 </div>
-
                 <div v-if="!item.ativo" class="col inativo"> 
                     <span> Inativo </span>
                 </div>
-            
-
-
                 <div class="col">
                     {{ item.nome }}
                 </div>
                 <div class="col">
-                <div class="btn-group col" role="group" aria-label="Basic mixed styles example">
-                <router-link  :to="{name: 'marca-detalhar', query: {id: item.id}}">
-                    <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
-                </router-link>
+                    {{ item.marca.nome }}
                 </div>
-              </div>
+                <div class="col">
+                <div class="btn-group col" role="group" aria-label="Basic mixed styles example">
+                    <router-link  :to="{name: 'modelo-detalhar', query: {id: item.id}}">
+                        <button type="submit" class="btn btn-outline-success botao">Detalhar</button>
+                    </router-link>
+                </div>
             </div>
+        </div>
+    
         </div>
     </div>
     
@@ -71,33 +69,33 @@
     <script lang="ts">
     
     import { defineComponent } from 'vue';
-
-    import { Marca } from '@/model/marca';
-    import marcaClient from '@/client/marca.client';
-
-    export default defineComponent({
-        name: 'MarcaLista',
-        data() {
-            return {
-                marcasList : new Array<Marca>()
+    import { Modelo } from '@/model/modelo';
+    import modeloClient from '@/client/modelo.client';
+    
+        export default defineComponent({
+            name: 'modeloList',
+            data() {
+                return {
+                    modeloList : new Array<Modelo>()
+                }
+            },
+            mounted(){
+                this.findAll();
+            },
+            methods: {
+    
+                findAll(){
+                    modeloClient.listarTodos()
+                    .then(sucess => {
+                        this.modeloList = sucess
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+                }
             }
-        },
-        mounted(){
-            this.findAll();
-        },
-        methods: {
-
-            findAll(){
-                marcaClient.listarTodos()
-                .then(sucess => {
-                    this.marcasList = sucess
-                })
-                .catch(error => {
-                    console.log(error);
-                })
-            }
-        }
-    });
+        });
+    
     </script>
     
     <style scoped>
@@ -123,20 +121,6 @@
         height: 5vh;
       
     }
-
-    .inativo{
-            color: red;
-            font-weight: bolder;
-            background-color: rgba(255, 0, 0, 0.349);
-            border-radius: 5px;
-        }
-    
-        .ativo{
-            color: green;
-            font-weight: bolder;
-            background-color: rgba(0, 128, 0, 0.349);
-            border-radius: 5px;
-        }
     
     .itens{
         background-color: white;
@@ -144,7 +128,7 @@
         text-align: center;
         border-radius: 5px;
         margin: 2vh;
-        transition: 2s;
+        
         height: 5vh;
         
     }
@@ -155,7 +139,6 @@
         font-family: 'Lato';
     }
     
-
     
     .page-link{
         width: 2vw;
@@ -176,6 +159,21 @@
         font-size: 2vh;
         font-weight: bolder;
     }
+    
+    
+        .inativo{
+            color: red;
+            font-weight: bolder;
+            background-color: rgba(255, 0, 0, 0.349);
+            border-radius: 5px;
+        }
+    
+        .ativo{
+            color: green;
+            font-weight: bolder;
+            background-color: rgba(0, 128, 0, 0.349);
+            border-radius: 5px;
+        }
     
     .botao-cadastrar{
         height: 2.5vh;

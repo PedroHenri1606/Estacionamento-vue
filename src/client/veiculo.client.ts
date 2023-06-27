@@ -33,36 +33,45 @@ export class VeiculoClient {   // Client é como se fosse a controller - ela se 
         }
     }
 
-    public async cadastrar(veiculo: Veiculo) : Promise<void>{
+    public async cadastrar(veiculo: Veiculo) : Promise<string>{
         try{
-            return (await this.axiosClient.post('/', veiculo))
+            return (await this.axiosClient.post('', veiculo))
 
         } catch (error:any){
             return Promise.reject(error.response)
         }
     }
 
-    public async editar (veiculo: Veiculo): Promise<void>{
+    public async editar (id: number, veiculo: Veiculo): Promise<string>{
         try{
-            return (await this.axiosClient.put(`/editar/${veiculo.id}`, veiculo)).data
+            return (await this.axiosClient.put(`/editar?id=${id}`, veiculo)).data
         
         } catch (error: any) {
             return Promise.reject(error.response)
         }
     }
 
-    public async desativar(veiculo: Veiculo): Promise<void>{
+    public async desativar(veiculo: Veiculo): Promise<string>{
         try{
-            return (await this.axiosClient.put(`/desativar/${veiculo.id}`, veiculo)).data
+            return (await this.axiosClient.put(`/desativar?id=${veiculo.id}`, veiculo)).data
         
         } catch (error: any){
             return Promise.reject(error.response)
         }
     }
 
-    public async deletar(veiculo: Veiculo): Promise<void>{
+    public async ativar(veiculo: Veiculo): Promise<string>{
         try{
-            return (await this.axiosClient.delete(`/deletar/${veiculo.id}`)).data
+            return (await this.axiosClient.put(`/ativar?id=${veiculo.id}`, veiculo)).data
+        
+        } catch (error: any){
+            return Promise.reject(error.response)
+        }
+    }
+
+    public async deletar(id: number): Promise<string>{
+        try{
+            return (await this.axiosClient.delete(`/deletar?id=${id}`)).data
 
         } catch (error: any){
             return Promise.reject(error.response)
